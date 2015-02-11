@@ -28,7 +28,7 @@
 		},
 		adjustHeight: function ($element) {
 			if (window.innerWidth < this.settings.minViewPortWidth) {
-				$element.children().css('minHeight', 0);
+				$element.children().css('height', 'auto');
 				return;
 			}
 
@@ -36,14 +36,14 @@
 			var currentHeight = 0;
 
 			$element.children().each(function() {
-				currentHeight = $(this).height();
+				currentHeight = $(this).outerHeight();
 
 				if (currentHeight > maxHeight) {
 					maxHeight = currentHeight;
 				}
 			});
 
-			$element.children().css('minHeight', maxHeight);
+			$element.children().css('height', maxHeight);
 		},
 		debounce: function(func, wait, immediate) {
 			var timeout;
